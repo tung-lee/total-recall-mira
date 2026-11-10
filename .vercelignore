@@ -1,0 +1,8 @@
+/*
+!/web
+!/packages
+!/vercel.json
+!/tsconfig.base.json
+/web/node_modules
+/web/dist
+/packages/*/node_modules

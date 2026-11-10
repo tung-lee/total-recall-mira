@@ -1,0 +1,5 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter Tight', system-ui, sans-serif; }
+button { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #0b84fe; outline-offset: 2px; }

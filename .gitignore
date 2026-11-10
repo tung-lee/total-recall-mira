@@ -1,0 +1,15 @@
+node_modules
+web/dist
+.env
+.env.*
+!.env.example
+artifacts/raw
+.DS_Store
+artifacts/work
+artifacts/*.mp4
+.cache
+artifacts/elevenlabs-previous-draft.txt
+assets/voice/.claude
+artifacts/e2e/
+.vercel
+video/.build/

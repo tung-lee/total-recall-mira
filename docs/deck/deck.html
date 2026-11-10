@@ -1,0 +1,92 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Mira deck</title>
+<style>
+@page { size: 1600px 900px; margin: 0 }
+* { box-sizing: border-box }
+body { margin: 0; font-family: 'Inter Tight', -apple-system, Helvetica, sans-serif; color: #0c0c0d }
+.s { width: 1600px; height: 900px; padding: 80px 100px; position: relative; overflow: hidden; page-break-after: always;
+  background: radial-gradient(45% 45% at 10% 5%, #ffe3f1, transparent 60%), radial-gradient(40% 40% at 95% 95%, #e6f9d4, transparent 60%), #fff }
+h1 { font-size: 150px; letter-spacing: -.055em; margin: 0; line-height: 1 }
+h2 { font-size: 64px; letter-spacing: -.045em; margin: 0 0 40px; line-height: 1.05 }
+p, li { font-size: 30px; line-height: 1.4; color: #333 }
+.k { font-size: 22px; text-transform: uppercase; letter-spacing: .12em; color: #d0438d; font-weight: 700; margin-bottom: 18px }
+.pills span { display: inline-block; background: #111; color: #fff; border-radius: 99px; padding: 14px 26px; font-size: 24px; margin: 0 10px 10px 0 }
+.row { display: flex; gap: 40px; align-items: center }
+.shot { height: 560px; border-radius: 24px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.35) }
+.crop { width: 330px; height: 620px; object-fit: cover; object-position: center; border-radius: 24px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.35) }
+table { border-collapse: separate; border-spacing: 0 14px; font-size: 26px; width: 100% }
+td { padding: 20px 26px; background: #f5f5f6 } td:first-child { border-radius: 18px 0 0 18px; font-weight: 700 } td:last-child { border-radius: 0 18px 18px 0 }
+code { font-family: Menlo, monospace; font-size: 21px; color: #0b84fe }
+ol { padding-left: 36px } li { margin-bottom: 12px }
+.x li::marker { color: #ff453a } .big { font-size: 40px; color: #111 }
+.foot { position: absolute; bottom: 40px; left: 100px; font-size: 20px; color: #999 }
+</style></head><body>
+
+<section class="s" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+  <div class="k">YouCam API Skin AI &amp; eCommerce VTO Hackathon</div>
+  <h1>Meet Mira</h1>
+  <p class="big">Your free AI beauty &amp; style assistant, right in iMessage</p>
+  <div class="pills" style="margin-top:30px"><span>AI Skin Analysis</span><span>Makeup VTO</span><span>AI Clothes</span></div>
+  <div class="foot">mira-production-110e.up.railway.app · github.com/harrymove-ctrl/mira-imessage</div>
+</section>
+
+<section class="s">
+  <div class="k">The problem</div>
+  <h2>You wonder about your skin right before you buy.</h2>
+  <ol class="x">
+    <li>A quiz instead of a measurement</li>
+    <li>A serum that breaks you out</li>
+    <li>A lipstick that looked better on the model</li>
+    <li>Full price at the first store, then a return</li>
+  </ol>
+  <p class="big" style="margin-top:40px">Mira turns that moment into one text message.</p>
+</section>
+
+<section class="s">
+  <div class="k">How it works</div>
+  <h2>One selfie starts an agent</h2>
+  <div class="row">
+    <img class="crop" src="../../artifacts/screenshots/03.png" style="object-position:50% 0">
+    <ol style="flex:1">
+      <li><b>Read your skin</b> with YouCam AI Skin Analysis: 8 concerns, skin age, heat maps</li>
+      <li><b>Match products</b> to your 3 weakest scores</li>
+      <li><b>Check 3 stores</b> for the best verified price</li>
+      <li><b>Try it on, unprompted:</b> a lip shade chosen from your redness score, rendered with Makeup VTO</li>
+      <li><b>Remember</b> skin type, shade and score history</li>
+    </ol>
+  </div>
+</section>
+
+<section class="s">
+  <div class="k">The product</div>
+  <h2>Skin report, picks, try-on, full look</h2>
+  <div class="row" style="justify-content:space-between">
+    <img class="crop" src="../../artifacts/screenshots/04.png">
+    <img class="crop" src="../../artifacts/screenshots/05.png">
+    <img class="crop" src="../../artifacts/screenshots/06.png">
+    <img class="crop" src="../../artifacts/screenshots/07.png">
+  </div>
+</section>
+
+<section class="s">
+  <div class="k">YouCam API integration</div>
+  <h2>Three APIs, one conversation</h2>
+  <table>
+    <tr><td>AI Skin Analysis</td><td><code>/s2s/v2.0/task/skin-analysis</code></td><td>8 SD concerns, masks, skin age · about 6 to 9 s</td></tr>
+    <tr><td>Makeup VTO</td><td><code>/s2s/v2.0/task/makeup-vto</code></td><td>lip_color picked by the agent · about 8 s</td></tr>
+    <tr><td>AI Clothes</td><td><code>/s2s/v2.0/task/cloth-v4</code></td><td>full look on your photo · about 14 s</td></tr>
+  </table>
+  <p>Node server keeps the key private: register file, PUT to presigned URL, create task, poll. Self healing retry when the face is too small, friendly errors for every YouCam code, result cache so units are never spent twice.</p>
+</section>
+
+<section class="s">
+  <div class="k">Impact &amp; next</div>
+  <h2>Measured, tried on, cheapest seller.</h2>
+  <ol>
+    <li><b>Shoppers:</b> fewer wrong purchases and returns, no account, no app install</li>
+    <li><b>Retailers:</b> a conversational storefront that sells what fits the customer's skin</li>
+    <li><b>Next:</b> real catalog and price feeds, Skin Tone for foundation, weekly check in scans, native iMessage relay</li>
+  </ol>
+  <p class="big" style="margin-top:50px">Mira. Your skin, your face, your price.</p>
+</section>
+</body></html>
